@@ -12,7 +12,19 @@ import './lib/mui/css/icons-extra.css'
 
 import router from './router'
 
+// 引入axios
+import axios from 'axios'
+
+//轮播
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 Vue.use(MintUI)
+
+axios.defaults.baseURL = 'http://www.liulongbin.top:3005'
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 

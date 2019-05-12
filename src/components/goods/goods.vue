@@ -22,34 +22,37 @@
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
+
       <router-link class="mui-tab-item" to="/search">
         <span class="mui-icon mui-icon-search"></span>
 
         <span class="mui-tab-label">搜索</span>
       </router-link>
     </nav>
+    <good-s @togoods="receive"></good-s>
+        <span  @togoods='recive'>{{count}}</span>
+
   </div>
 </template>
 
 <script>
+import goods from "./components/goods/GoodsInfo.vue";
 export default {
-  created() {
-    this.getgoods()
-  },
   name: "App",
-  methods: {
-    getgoods() {
-      var goods = window.localStorage.getItem("goods");
-      console.log(goods);
-      
-      this.count = goods
-    }
+  components: {
+    "good-s": goods
   },
-
   data() {
     return {
       count: 0
     };
+  },
+  methods: {
+    receive(count) {
+      console.log("1");
+      console.log(count);
+      this.count = `${count}`;
+    }
   }
 };
 </script>
